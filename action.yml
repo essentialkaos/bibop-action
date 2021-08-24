@@ -94,4 +94,4 @@ runs:
       shell: bash
       run: |
         echo "Running Bibop…"
-        $GITHUB_ACTION_PATH/bibop ${{steps.bibop-set-options.outputs.options}} ${{inputs.recipe}}
+        $GITHUB_ACTION_PATH/bibop -ip ${{steps.bibop-set-options.outputs.options}} ${{inputs.recipe}}
