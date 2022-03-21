@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: Code checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Test recipes with Bibop
         uses: essentialkaos/bibop-action@v1
