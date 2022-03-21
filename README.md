@@ -28,7 +28,7 @@ jobs:
       - name: Code checkout
         uses: actions/checkout@v2
 
-      - name: Run test recipes with Bibop
+      - name: Test recipes with Bibop
         uses: essentialkaos/bibop-action@v1
         with:
           recipe: .bibop/myapp.recipe
