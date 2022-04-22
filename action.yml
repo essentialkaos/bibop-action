@@ -7,9 +7,14 @@ branding:
   color: 'white'
 
 inputs:
-  recipe: 
+  recipe:
     description: "Path to Bibop recipe"
     required: true
+
+  version:
+    description: "Version of Bibop"
+    required: false
+    default: "5.1.3"
 
   dry-run:
     description: "Just parse and validate recipe"
@@ -39,7 +44,7 @@ runs:
       uses: actions/cache@v3
       with:
         path: ~/.cache/bibop
-        key: ${{runner.os}}-bibop-${{hashFiles('~/.cache/bibop')}}
+        key: ${{runner.os}}-bibop-v${{inputs.version}}
 
     - id: bibop-install
       name: Install Bibop
@@ -49,7 +54,7 @@ runs:
         echo "::group::Downloading Bibop…"
 
         mkdir -p ~/.cache
-        wget -O ~/.cache/bibop "https://apps.kaos.st/bibop/latest/linux/x86_64/bibop" 2>&1
+        wget -O ~/.cache/bibop "https://apps.kaos.st/bibop/${{inputs.version}}/linux/x86_64/bibop" 2>&1
         chmod +x ~/.cache/bibop
 
         echo "::endgroup::"

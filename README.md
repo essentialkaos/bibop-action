@@ -28,7 +28,7 @@ jobs:
       - name: Code checkout
         uses: actions/checkout@v3
 
-      - name: Test recipes with Bibop
+      - name: Test recipe with Bibop
         uses: essentialkaos/bibop-action@v1
         with:
           recipe: .bibop/myapp.recipe
@@ -39,6 +39,18 @@ jobs:
           tag: simple
 
 ```
+
+### Options
+
+| Option | Description | Value |
+|--------|-------------|--------|
+| `recipe` | Path to Bibop recipe | _Path_ |
+| `version` | Bibop version | _Version in semver notation_ |
+| `dry-run` | Just parse and validate recipe | _Boolean_ |
+| `format` | Output format | `tap`<br/>`json`<br/>`xml` |
+| `working-dir` | Path to working directory | _Path_ |
+| `path` | Path to directory with binaries | _Path_ |
+| `tag` | Command tag | _String |
 
 ### License
 
