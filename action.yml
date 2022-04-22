@@ -34,14 +34,23 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - id: bibop-bin-cache
+      name: Cache bibop binaries
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/bibop
+        key: ${{runner.os}}-${{hashFiles('~/.cache/bibop')}}
+
     - id: bibop-install
-      name: Install Bibop 
+      name: Install Bibop
+      if: steps.cache.outputs.cache-hit != 'true'
       shell: bash
       run: |
         echo "::group::Downloading Bibop…"
 
-        wget -O "$GITHUB_ACTION_PATH/bibop" "https://apps.kaos.st/bibop/latest/linux/x86_64/bibop" 2>&1
-        chmod +x "$GITHUB_ACTION_PATH/bibop"
+        mkdir -p ~/.cache
+        wget -O "~/.cache/bibop" "https://apps.kaos.st/bibop/latest/linux/x86_64/bibop" 2>&1
+        chmod +x "~/.cache/bibop"
 
         echo "::endgroup::"
 
@@ -86,7 +95,7 @@ runs:
       shell: bash
       run: |
         echo "::group::Print Bibop version…"
-        $GITHUB_ACTION_PATH/bibop --version
+        ~/.cache/bibop --version
         echo "::endgroup::"
 
     - id: bibop-check
@@ -94,4 +103,4 @@ runs:
       shell: bash
       run: |
         echo "Running Bibop…"
-        $GITHUB_ACTION_PATH/bibop -ip ${{steps.bibop-set-options.outputs.options}} ${{inputs.recipe}}
+        ~/.cache/bibop -ip ${{steps.bibop-set-options.outputs.options}} ${{inputs.recipe}}
