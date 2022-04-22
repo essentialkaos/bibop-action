@@ -32,11 +32,6 @@ jobs:
         uses: essentialkaos/bibop-action@v1
         with:
           recipe: .bibop/myapp.recipe
-          dry-run: true
-          format: json
-          working-dir: src/app
-          path: src/app/bin
-          tag: simple
 
 ```
 
@@ -50,7 +45,7 @@ jobs:
 | `format` | Output format | `tap`<br/>`json`<br/>`xml` |
 | `working-dir` | Path to working directory | _Path_ |
 | `path` | Path to directory with binaries | _Path_ |
-| `tag` | Command tag | _String |
+| `tag` | Command tag | _String_ |
 
 ### License
 
