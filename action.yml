@@ -40,11 +40,11 @@ runs:
   using: "composite"
   steps:
     - id: bibop-bin-cache
-      name: Cache bibop binaries
+      name: Cache bibop binary
       uses: actions/cache@v3
       with:
         path: ~/.cache/bibop
-        key: ${{runner.os}}-bibop-v${{inputs.version}}
+        key: ${{runner.os}}-ek-bibop-action-v${{inputs.version}}
 
     - id: bibop-install
       name: Install Bibop
