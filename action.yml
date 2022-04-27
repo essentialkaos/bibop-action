@@ -115,5 +115,5 @@ runs:
       run: |
         # [bibop-check]
 
-        echo "\e[34mRunning Bibop…\e[0m"
+        echo -e "\e[34mRunning Bibop…\e[0m"
         ~/.cache/bibop -ip ${{steps.bibop-set-options.outputs.options}} ${{inputs.recipe}}
