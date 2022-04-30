@@ -53,7 +53,7 @@ runs:
       run: |
         # [bibop-install]
 
-        echo -e "::group::\e[34mDownloading Bibop…\e[0m"
+        echo -e "::group::\033[34mDownloading Bibop…\033[0m"
 
         mkdir -p ~/.cache
         wget -O ~/.cache/bibop "https://apps.kaos.st/bibop/${{inputs.version}}/linux/x86_64/bibop" 2>&1
@@ -89,7 +89,7 @@ runs:
           options+=("-p ${{inputs.tag}}")
         fi
 
-        echo -e "::group::\e[34mBibop configuration…\e[0m"
+        echo -e "::group::\033[34mBibop configuration…\033[0m"
         if [[ ${#options[@]} -eq 0 ]] ; then
           echo "Options: -no-set-"
         else
@@ -105,7 +105,7 @@ runs:
       run: |
         # [bibop-version-print]
 
-        echo -e "::group::\e[34mPrint Bibop version…\e[0m"
+        echo -e "::group::\033[34mPrint Bibop version…\033[0m"
         ~/.cache/bibop --version
         echo "::endgroup::"
 
@@ -115,5 +115,5 @@ runs:
       run: |
         # [bibop-check]
 
-        echo -e "\e[34mRunning Bibop…\e[0m"
+        echo -e "\033[34mRunning Bibop…\033[0m"
         ~/.cache/bibop -ip ${{steps.bibop-set-options.outputs.options}} ${{inputs.recipe}}
