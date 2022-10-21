@@ -97,7 +97,7 @@ runs:
         fi
         echo "::endgroup::"
 
-        echo "::set-output name=options::${options[@]}"
+        echo "options=${options[@]}" >> $GITHUB_OUTPUT
 
     - id: bibop-version-print
       name: Print Bibop version info
