@@ -14,14 +14,14 @@ inputs:
   version:
     description: "Version of Bibop"
     required: false
-    default: "5.1.3"
+    default: "6.0.3"
 
   dry-run:
     description: "Just parse and validate recipe"
     required: false
 
   format:
-    description: "Output format (tap|json|xml)"
+    description: "Output format (tap13|tap14|json|xml)"
     required: false
 
   working-dir:
