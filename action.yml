@@ -14,7 +14,7 @@ inputs:
   version:
     description: "Version of Bibop"
     required: false
-    default: "7.2.1"
+    default: "8.0.2"
 
   dry-run:
     description: "Just parse and validate recipe"
