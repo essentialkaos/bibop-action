@@ -41,7 +41,7 @@ runs:
   steps:
     - id: bibop-bin-cache
       name: Cache bibop binary
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.cache/bibop
         key: ${{runner.os}}-ek-bibop-action-v${{inputs.version}}
